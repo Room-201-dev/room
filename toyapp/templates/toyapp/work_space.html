@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Work Space</title>
+</head>
+<body>
+{#<div style="border-bottom: 0.5px solid black; padding-bottom: 2vh; text-align: center">#}
+{#    <h3>1. DB→セレクトボックスへの反映</h3>#}
+{#    <form action="" method="post">#}
+{#        {% csrf_token %}#}
+{#        {{ form.as_p }}#}
+{#        <button type="submit">送信</button>#}
+{#    </form>#}
+{#</div>#}
+
+<div style="border-bottom: 0.5px solid black; padding-bottom: 2vh; text-align: center">
+    <h3>2. inputタグのNullチェック</h3>
+    <input type="text" id="js_nullinput">
+    <button id="js_nullcheck" type="submit">送信</button>
+</div>
+
+<div style="border-bottom: 0.5px solid black; padding-bottom: 2vh; text-align: center">
+    <h3>3. Djangoラジオボタン実装</h3>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ radioform.day }}
+        <button type="submit">送信</button>
+    </form>
+
+    {% for days in day %}
+    {% endfor %}
+</div>
+</body>
+
+<script>
+    let button = document.getElementById('js_nullcheck')
+
+    button.addEventListener('click', () => {
+        let input = document.getElementById('js_nullinput')
+        if (input.value === '') {
+            console.log('入力が認められません')
+        } else {
+            console.log('正しく入力されています')
+        }
+    })
+</script>
+</html>
